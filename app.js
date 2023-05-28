@@ -1,3 +1,4 @@
+const inputText = document.querySelector("#text");
 const inputFile = document.querySelector("#file");
 const modeBtn = document.querySelector("#mode-btn");
 const destroyBtn = document.querySelector("#destroy-btn");
@@ -14,6 +15,7 @@ let isFilling = false;
 canvas.width = 800;
 canvas.height = 800;
 ctx.lineWidth = lineWidth.value;
+ctx.lineCap = "round";
 
 const colors = [
     "#ff3838",
@@ -99,6 +101,18 @@ function onFileChange(event) {
     inputFile.value = null;
 }
 
+function onDoubleClick(event) {
+    const text = inputText.value;
+    if (text !== "") {
+        ctx.save();
+        ctx.lineWidth = 1;
+        ctx.font = "68px serif";
+        ctx.fillText(text, event.offsetX, event.offsetY);
+        ctx.restore();
+    }
+}
+
+canvas.addEventListener("dblclick", onDoubleClick);
 canvas.addEventListener("mousemove", onMove);
 canvas.addEventListener("mousedown", startPainting);
 canvas.addEventListener("mouseup", cancelPainting);
