@@ -1,5 +1,6 @@
 const inputText = document.querySelector("#text");
 const inputFile = document.querySelector("#file");
+const saveBtn = document.querySelector("#save");
 const modeBtn = document.querySelector("#mode-btn");
 const destroyBtn = document.querySelector("#destroy-btn");
 const eraserBtn = document.querySelector("#eraser-btn");
@@ -112,6 +113,14 @@ function onDoubleClick(event) {
     }
 }
 
+function onSaveClick() {
+    const url = canvas.toDataURL();
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "myDrawing.png";
+    a.click();
+}
+
 canvas.addEventListener("dblclick", onDoubleClick);
 canvas.addEventListener("mousemove", onMove);
 canvas.addEventListener("mousedown", startPainting);
@@ -130,3 +139,5 @@ destroyBtn.addEventListener("click", onDestroyClick);
 eraserBtn.addEventListener("click", onEraserClick);
 
 inputFile.addEventListener("change", onFileChange);
+
+saveBtn.addEventListener("click", onSaveClick);
