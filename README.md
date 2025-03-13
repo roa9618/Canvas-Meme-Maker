@@ -6,4 +6,4 @@ With Nomadcoder's source
 Source-link : https://nomadcoders.co/javascript-for-beginners-2/
 
 
-Since 2023.05.27 ~ 2023.05.28
+Period 2023.05.27 ~ 2023.05.28
